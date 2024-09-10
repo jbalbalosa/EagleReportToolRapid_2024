@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("EagleReportTool")>
 <Assembly: AssemblyDescription("EagleReportTool Rapid Edition")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyCompany("Surangel and Sons")>
 <Assembly: AssemblyProduct("EagleReportTool")>
 <Assembly: AssemblyCopyright("Copyright ©  2023")>
 <Assembly: AssemblyTrademark("")>

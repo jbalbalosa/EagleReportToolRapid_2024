@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="EagleRepoortTool.exe" version="1.0.0.10" publicKeyToken="ea5a936a9e8cfe3e" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="2191531_best_fast_flash_good_light_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="EagleRepoortTool" version="1.0.0.0" publicKeyToken="50F19E89F11DE1C6" language="neutral" processorArchitecture="msil" />
+    <commandLine file="EagleRepoortTool.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EagleRepoortTool.exe" size="85408">
+      <assemblyIdentity name="EagleRepoortTool" version="1.0.0.0" publicKeyToken="50F19E89F11DE1C6" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yoWTuBjyAByPL8Yi5JengVzRaIPuoq5HHDSrOROXKLw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="2191531_best_fast_flash_good_light_icon.ico" size="7253">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LyCICvX/kRGa4mEE73MFTJU2X0puh9/HF90+k2iqEDI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="EagleRepoortTool.exe.config" size="177">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>RMHH20ChnG3+n9nnsT8zkh4apNYvSLTq5aCx327ujZA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on
+           and is designed to work with. Uncomment the appropriate elements
+           and Windows will automatically select the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=JEFF\cyjef" issuerKeyHash="9a01a8dc8eb138183bf84ebfcf5b89c6df1d5ee9" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>p5cGvTj3EKQd1eDBFdjOahvBfEo04FVt3FEAPISUDdI=</DigestValue></Reference></SignedInfo><SignatureValue>GRwzBkjPfJ5ze+rDdEvjPd6j5gkxDS2p/2PQzkXJ6Xm7iFY7gepEO3mba5+aaLiZ3Kc82Qqr3aFGP66wRCiB8cLa57a/kpHKz8jaDlytf28hTH2NUjvyP7kgEBzi7MYbrxto6rFmicJsnPiYpK3V+Hp62N92bD3Pc4P1I75OcR8=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>thrAsbpOil4dGiec92umkl5JGTQKH1e5+utufwb+NpZRe+2wBrcKIS8UhozyYr3GXYsA/IC3qocMBxJ7yliAUGechb9I8AkA/b+YbSFBDToOQLVTBdT9PZppqgsXOiuVbUyNLIs/1ZUJ21l+FVXb13rbFo9J7wwNkLnPE0pBxmk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d20d94843c0051dc6d55e0344a7cc11b6aced815c1e0d51da410f738bd0697a7" Description="" Url=""><as:assemblyIdentity name="EagleRepoortTool.exe" version="1.0.0.10" publicKeyToken="ea5a936a9e8cfe3e" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=JEFF\cyjef</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>SL7TthHARPMemwmU7R77WpYNCGwcFtWi3aJZABTCqGA=</DigestValue></Reference></SignedInfo><SignatureValue>F1dCrvsUVe6G9PWv6PLcKmXkeiX5PcKV/k1IaCimE5wygt8fo/cts2pteOM90F2iq/bTvop+2PU7hU722stk96AQFsHH8lWCPGk6eVWdwrlkTHCGcg/K3YZn4oIeA+2hE09tK8akQvEz7B/d+BPR1c0X0mVHZt4TlpJKtxfsq/g=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>thrAsbpOil4dGiec92umkl5JGTQKH1e5+utufwb+NpZRe+2wBrcKIS8UhozyYr3GXYsA/IC3qocMBxJ7yliAUGechb9I8AkA/b+YbSFBDToOQLVTBdT9PZppqgsXOiuVbUyNLIs/1ZUJ21l+FVXb13rbFo9J7wwNkLnPE0pBxmk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQWbRYyAJ4M7xLhEVqRwxlBDANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDHhQASgBFAEYARgBcAGMAeQBqAGUAZjAeFw0yMzA1MjYwMjE2MjlaFw0yNDA1MjUwODE2MjlaMB8xHTAbBgNVBAMeFABKAEUARgBGAFwAYwB5AGoAZQBmMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC2GsCxuk6KXh0aJ5z3a6aSXkkZNAofV7n6625/Bv42llF77bAGtwohLxSGjPJivcZdiwD8gLeqhwwHEnvKWIBQZ5yFv0jwCQD9v5htIUENOg5AtVMF1P09mmmqCxc6K5VtTI0siz/VlQnbWX4VVdvXetsWj0nvDA2Quc8TSkHGaQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAIU+sROLaDjzKND68wTlGR19ve+E6nhIh2l88I0hYEbtuentUmPh0WGkFRcgQwmUVNBuNLTN5L/7VtnJ3NwC2uDgPFC5nR+LwLyg9jbookLFiFnBCz16tg/Lu/fweHQREpjSJ0WDrHmCKY0iLsae7NG0zYeC1QR/73nlP8qpi9H/</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -23,8 +23,9 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblRows = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblProcessingRow = New System.Windows.Forms.ToolStripStatusLabel()
         Me.pbrProgress = New System.Windows.Forms.ToolStripProgressBar()
@@ -33,34 +34,54 @@ Partial Class frmMain
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.tspMenu = New System.Windows.Forms.ToolStrip()
         Me.butProcess = New System.Windows.Forms.ToolStripButton()
         Me.butExport = New System.Windows.Forms.ToolStripButton()
+        Me.butRefresh = New System.Windows.Forms.ToolStripButton()
         Me.butSettings = New System.Windows.Forms.ToolStripButton()
         Me.butExit = New System.Windows.Forms.ToolStripButton()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cboOrderPoint = New System.Windows.Forms.ComboBox()
+        Me.cboReportType = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cboSortBy = New System.Windows.Forms.ComboBox()
+        Me.cboStore = New System.Windows.Forms.ComboBox()
+        Me.chkProcessExport = New System.Windows.Forms.CheckBox()
         Me.lsvFiles = New System.Windows.Forms.ListView()
         Me.colName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colPath = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.dgvData = New System.Windows.Forms.DataGridView()
+        Me.bgWorker = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
+        Me.tspMenu.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblRows, Me.lblProcessingRow, Me.pbrProgress})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblRows, Me.lblProcessingRow, Me.pbrProgress})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 493)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(824, 22)
         Me.StatusStrip1.TabIndex = 0
         Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(110, 17)
+        Me.ToolStripStatusLabel1.Text = "Updated: 9/10/2024"
         '
         'lblRows
         '
@@ -115,14 +136,14 @@ Partial Class frmMain
         Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(95, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
-        'ToolStrip1
+        'tspMenu
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.butProcess, Me.butExport, Me.butSettings, Me.butExit})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(824, 54)
-        Me.ToolStrip1.TabIndex = 2
-        Me.ToolStrip1.Text = "ToolStrip1"
+        Me.tspMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.butProcess, Me.butExport, Me.butRefresh, Me.butSettings, Me.butExit})
+        Me.tspMenu.Location = New System.Drawing.Point(0, 24)
+        Me.tspMenu.Name = "tspMenu"
+        Me.tspMenu.Size = New System.Drawing.Size(824, 54)
+        Me.tspMenu.TabIndex = 2
+        Me.tspMenu.Text = "ToolStrip1"
         '
         'butProcess
         '
@@ -146,6 +167,17 @@ Partial Class frmMain
         Me.butExport.Text = "Export"
         Me.butExport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'butRefresh
+        '
+        Me.butRefresh.Image = CType(resources.GetObject("butRefresh.Image"), System.Drawing.Image)
+        Me.butRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.butRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.butRefresh.Name = "butRefresh"
+        Me.butRefresh.Size = New System.Drawing.Size(50, 51)
+        Me.butRefresh.Text = "Refresh"
+        Me.butRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.butRefresh.ToolTipText = "Refresh file list"
+        '
         'butSettings
         '
         Me.butSettings.Image = CType(resources.GetObject("butSettings.Image"), System.Drawing.Image)
@@ -155,6 +187,7 @@ Partial Class frmMain
         Me.butSettings.Size = New System.Drawing.Size(53, 51)
         Me.butSettings.Text = "Settings"
         Me.butSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.butSettings.Visible = False
         '
         'butExit
         '
@@ -177,27 +210,149 @@ Partial Class frmMain
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lsvFiles)
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.dgvData)
-        Me.SplitContainer1.Size = New System.Drawing.Size(800, 350)
+        Me.SplitContainer1.Size = New System.Drawing.Size(800, 415)
         Me.SplitContainer1.SplitterDistance = 225
         Me.SplitContainer1.TabIndex = 3
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.cboOrderPoint)
+        Me.GroupBox1.Controls.Add(Me.cboReportType)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.cboSortBy)
+        Me.GroupBox1.Controls.Add(Me.cboStore)
+        Me.GroupBox1.Controls.Add(Me.chkProcessExport)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(222, 166)
+        Me.GroupBox1.TabIndex = 13
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Report Options"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(9, 30)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Report Type"
+        '
+        'cboOrderPoint
+        '
+        Me.cboOrderPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOrderPoint.Enabled = False
+        Me.cboOrderPoint.FormattingEnabled = True
+        Me.cboOrderPoint.Items.AddRange(New Object() {"Average Sales", "Average Sales by 6 mo.", "Suggested Order", "Suggested Order by 6 mo.", "Suggested Order by 11 mo.", "None", "Zero"})
+        Me.cboOrderPoint.Location = New System.Drawing.Point(81, 82)
+        Me.cboOrderPoint.Name = "cboOrderPoint"
+        Me.cboOrderPoint.Size = New System.Drawing.Size(133, 21)
+        Me.cboOrderPoint.TabIndex = 12
+        '
+        'cboReportType
+        '
+        Me.cboReportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboReportType.FormattingEnabled = True
+        Me.cboReportType.Items.AddRange(New Object() {"Overstock/UndertStock", "Z-Report - Dept", "Z-Report - Vendor"})
+        Me.cboReportType.Location = New System.Drawing.Point(81, 27)
+        Me.cboReportType.Name = "cboReportType"
+        Me.cboReportType.Size = New System.Drawing.Size(133, 21)
+        Me.cboReportType.Sorted = True
+        Me.cboReportType.TabIndex = 2
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(9, 86)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(60, 13)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "Order Point"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 55)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Store No."
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(9, 138)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(83, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Process/Export:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(9, 112)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(44, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Sort By:"
+        '
+        'cboSortBy
+        '
+        Me.cboSortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboSortBy.FormattingEnabled = True
+        Me.cboSortBy.Items.AddRange(New Object() {"Item Number", "Dept and Class"})
+        Me.cboSortBy.Location = New System.Drawing.Point(81, 109)
+        Me.cboSortBy.Name = "cboSortBy"
+        Me.cboSortBy.Size = New System.Drawing.Size(133, 21)
+        Me.cboSortBy.TabIndex = 8
+        '
+        'cboStore
+        '
+        Me.cboStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboStore.Enabled = False
+        Me.cboStore.FormattingEnabled = True
+        Me.cboStore.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9"})
+        Me.cboStore.Location = New System.Drawing.Point(81, 55)
+        Me.cboStore.Name = "cboStore"
+        Me.cboStore.Size = New System.Drawing.Size(133, 21)
+        Me.cboStore.TabIndex = 5
+        '
+        'chkProcessExport
+        '
+        Me.chkProcessExport.AutoSize = True
+        Me.chkProcessExport.Location = New System.Drawing.Point(95, 137)
+        Me.chkProcessExport.Name = "chkProcessExport"
+        Me.chkProcessExport.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkProcessExport.Size = New System.Drawing.Size(15, 14)
+        Me.chkProcessExport.TabIndex = 7
+        Me.chkProcessExport.UseVisualStyleBackColor = True
+        '
         'lsvFiles
         '
+        Me.lsvFiles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lsvFiles.BackColor = System.Drawing.SystemColors.Window
         Me.lsvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colName, Me.colPath})
-        Me.lsvFiles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lsvFiles.Enabled = False
         Me.lsvFiles.FullRowSelect = True
         Me.lsvFiles.GridLines = True
         Me.lsvFiles.HideSelection = False
-        Me.lsvFiles.Location = New System.Drawing.Point(0, 0)
-        Me.lsvFiles.MultiSelect = False
+        Me.lsvFiles.Location = New System.Drawing.Point(0, 175)
         Me.lsvFiles.Name = "lsvFiles"
-        Me.lsvFiles.Size = New System.Drawing.Size(225, 350)
+        Me.lsvFiles.Size = New System.Drawing.Size(222, 237)
+        Me.lsvFiles.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.lsvFiles.TabIndex = 0
         Me.lsvFiles.UseCompatibleStateImageBehavior = False
         Me.lsvFiles.View = System.Windows.Forms.View.Details
@@ -215,26 +370,30 @@ Partial Class frmMain
         '
         Me.dgvData.AllowUserToAddRows = False
         Me.dgvData.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvData.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvData.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvData.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvData.Location = New System.Drawing.Point(0, 0)
         Me.dgvData.MultiSelect = False
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(571, 350)
+        Me.dgvData.Size = New System.Drawing.Size(571, 412)
         Me.dgvData.TabIndex = 1
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(824, 450)
+        Me.ClientSize = New System.Drawing.Size(824, 515)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Controls.Add(Me.ToolStrip1)
+        Me.Controls.Add(Me.tspMenu)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -246,12 +405,14 @@ Partial Class frmMain
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
+        Me.tspMenu.ResumeLayout(False)
+        Me.tspMenu.PerformLayout()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -263,7 +424,7 @@ Partial Class frmMain
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents tspMenu As ToolStrip
     Friend WithEvents butProcess As ToolStripButton
     Friend WithEvents butExport As ToolStripButton
     Friend WithEvents butSettings As ToolStripButton
@@ -277,4 +438,18 @@ Partial Class frmMain
     Friend WithEvents lblProcessingRow As ToolStripStatusLabel
     Friend WithEvents pbrProgress As ToolStripProgressBar
     Friend WithEvents InfoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cboReportType As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cboStore As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents butRefresh As ToolStripButton
+    Friend WithEvents Label3 As Label
+    Friend WithEvents chkProcessExport As CheckBox
+    Friend WithEvents cboSortBy As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cboOrderPoint As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents bgWorker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
 End Class
